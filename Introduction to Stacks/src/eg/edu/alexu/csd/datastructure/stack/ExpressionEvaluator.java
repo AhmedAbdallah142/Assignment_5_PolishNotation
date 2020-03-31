@@ -26,7 +26,6 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
 				}
 			}
 		}
-		//System.out.println(str);
 		String newS = "";
 		Stack s = new Stack();
 		Stack parenthesis = new Stack();
