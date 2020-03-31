@@ -11,7 +11,7 @@ public class Stack implements IStack {
 	}
 	private Node top;
 	private int size;
-	Stack(){
+	public Stack(){
 		this.top=null;
 		this.size=0;
 	}
