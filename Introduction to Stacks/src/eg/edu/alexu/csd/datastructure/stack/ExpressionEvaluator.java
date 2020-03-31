@@ -5,15 +5,6 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
 	@Override
 	public String infixToPostfix(String expression) {
 		StringBuffer str = new StringBuffer(expression);
-		/*int j=0 ;
-		while (str.charAt(j)==' ')j++;
-		if (str.charAt(j)=='-') {
-			str.insert(j,"(0");
-			j+=3;
-			while (Character.isDigit(str.charAt(j)))j++;
-			str.insert(j,')');
-			j=j+1;
-		}*/
 		for (int i=0;i<str.length();i++) {
 			if (str.charAt(i)=='-') {
 				int j=i-1;
@@ -124,7 +115,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
 			return op1/op2;
 		}		
 	}
-	private boolean checkSymbols(char c) {
+	public boolean checkSymbols(char c) {
 		return (c>= 'a' && c<='z')||(c>= 'A' && c<='Z');
 	}
 
