@@ -17,14 +17,20 @@ class Junit_ExpressionEvaluator {
 		assertEquals("2 40 8 + + 9 +",e.infixToPostfix("((2+(40+8))+9)"));
 		
 		
-		//the next two method to check the multiply without "*" between parenthesis
+		//the next two methods to check the multiply without "*" between parenthesis
 		assertEquals("a b c - d + / e a - * c *",e.infixToPostfix("(a/(b-c+d))*(e-a)*c"));
 		assertEquals("a b c - d + / e a - * c *",e.infixToPostfix("(a/(b-c+d))(e-a)*c"));
 		
 		
-		//the next two method to check the multiply without "*" between Symbols
+		//the next two methods to check the multiply without "*" between Symbols
 		assertEquals("a b *",e.infixToPostfix("a*b"));
 		assertEquals("a b *",e.infixToPostfix("ab"));
+		
+		
+		//the next two methods to check the multiply without "*" between digits and symbols or digits and parenthesis
+		assertEquals("25 5 4 + *",e.infixToPostfix("25(5+4)"));
+		assertEquals("5 x +",e.infixToPostfix("5x"));
+				
 		
 		assertEquals("a 0 b - +",e.infixToPostfix("a+-b"));
 		

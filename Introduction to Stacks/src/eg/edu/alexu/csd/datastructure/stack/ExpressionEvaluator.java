@@ -150,7 +150,9 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
 					}
 				}
 			}
-			if (i<input.length()&&(input.charAt(i)==')'||checkSymbols(input.charAt(i)))) {
+			if (i<input.length()&&(input.charAt(i)==')'||checkSymbols(input.charAt(i))||Character.isDigit(input.charAt(i)))) {
+				while ((i+1)<input.length()&&((Character.isDigit(input.charAt(i))||input.charAt(i)=='.'||input.charAt(i+1)==',')
+						&&(Character.isDigit(input.charAt(i+1))||input.charAt(i+1)=='.'||input.charAt(i+1)==',')))i++;
 				int j=i+1;
 				while (j<input.length()&&input.charAt(j)==' ')j++;
 				if (j<input.length()&&(input.charAt(j)=='('||checkSymbols(input.charAt(j)))) {
