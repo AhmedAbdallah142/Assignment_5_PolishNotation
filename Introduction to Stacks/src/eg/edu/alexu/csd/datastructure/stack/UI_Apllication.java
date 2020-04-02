@@ -36,7 +36,12 @@ public class UI_Apllication {
 		}
 		s.close();
 	}
-	
+	/**
+	 * check if the expression have symbols and ask the user for the values of each symbol 
+	 * then evaluate the result 
+	 * if the expression doesn't have symbols then this method evaluate the expression
+	 * @param expression  : the expression to evaluate (alphanumeric)
+	 */
 	private static void evaluateUI (String expression) {
 		Scanner s = new Scanner(System.in);
 		ExpressionEvaluator e = new ExpressionEvaluator();
