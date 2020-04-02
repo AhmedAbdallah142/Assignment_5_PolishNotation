@@ -10,7 +10,7 @@ public class UI_Apllication {
 		char choose ;
 		String expression;
 		System.out.println("Please choose an action\n-------------------------------\n1)convert from infix to postfix Using Symbols or Digits "
-				+ "\n2)calculate a postfix notation\n3)convert and calculate in one step\n4)exit");
+				+ "\n2)calculate a postfix notation(Digits only)\n3)convert and calculate in one step(Digits or Symbols){recommended}\n4)exit");
 		choose = s.next().charAt(0);
 		switch (choose) {
 		case '1':System.out.println("Enter the infix notation : ");
