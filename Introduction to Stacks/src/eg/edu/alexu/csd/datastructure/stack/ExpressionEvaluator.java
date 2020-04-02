@@ -16,18 +16,24 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
 		StringBuffer str = new StringBuffer(expression);
 		str = inhanceInput(str);
 		String newS = "";
+		int temp;
 		Stack s = new Stack();
 		for (int i=0;i<str.length();i++) {
 			if (Character.isDigit(str.charAt(i))||checkSymbols(str.charAt(i))||str.charAt(i)=='.'||str.charAt(i)==',') {
 				newS+=str.charAt(i);
 			}
 			else if (str.charAt(i)=='(') {
-				int temp = i+1;
+				temp = i+1;
 				i = checkParenthesis(i,str);
+				
 				newS += infixToPostfix(str.substring(temp, --i));
 			}
 			else if (checkOperants(str.charAt(i))) {
 				newS += ' ';
+				temp=i+1;
+				while (temp<str.length()&&str.charAt(temp)==' ')temp++;
+				if (temp==str.length()||(str.charAt(temp)!='('&&!Character.isDigit(str.charAt(temp))&&!checkSymbols(str.charAt(temp))))
+					throw new RuntimeException("invalid expression");
 				while (!s.isEmpty()&&!precedence(str.charAt(i),(char)s.peek())) {
 					newS += s.pop();
 					newS += ' ';

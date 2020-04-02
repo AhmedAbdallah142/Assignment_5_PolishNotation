@@ -13,38 +13,37 @@ public class UI_Apllication {
 		System.out.println("\t\t\t\t\twelcome to infix to postfix program");
 		while(true) {
 			System.out.print("\t\t\t\t\t-----------------------------------\nEnter the infix notation (digits or symbols): ");
-			expression =e.infixToPostfix(s.next()); 
-			System.out.println("the postfix notation is : "+expression);
-			for (int i=0;i<expression.length();i++) {
-				if (e.checkSymbols(expression.charAt(i))) {
-					l.add(expression.charAt(i));
-				}
-			}
-			if (l.isEmpty()) {
-				try {
-					System.out.println("the value of the postfix notation is : "+e.evaluate(expression));
-				}catch (Exception e1) {
-					System.out.println("the value of symbols must be digits or you enterd an invalid postfix");
-				}	
-			}
-			else {
-				for (int i=0;i<l.size();i++) {
-					System.out.print("Enter the value of "+l.get(i)+" : ");
-					l.set(i, s.next());
-				}
-				int x = 0;
+			try {
+				expression =e.infixToPostfix(s.next()); 
+				System.out.println("the postfix notation is : "+expression);
 				for (int i=0;i<expression.length();i++) {
 					if (e.checkSymbols(expression.charAt(i))) {
-						expression=expression.replace(expression.substring(i,i+1), (String)l.get(x));
-						x++;
+						l.add(expression.charAt(i));
 					}
 				}
-				try {
+				if (l.isEmpty()) {
 					System.out.println("the value of the postfix notation is : "+e.evaluate(expression));
-				}catch (Exception e1) {
+					System.out.println("the value of symbols must be digits or you enterd an invalid postfix");	
+				}
+				else {
+					for (int i=0;i<l.size();i++) {
+						System.out.print("Enter the value of "+l.get(i)+" : ");
+						l.set(i, s.next());
+					}
+					int x = 0;
+					for (int i=0;i<expression.length();i++) {
+						if (e.checkSymbols(expression.charAt(i))) {
+							expression=expression.replace(expression.substring(i,i+1), (String)l.get(x));
+							x++;
+						}
+					}
+					System.out.println("the value of the postfix notation is : "+e.evaluate(expression));
 					System.out.println("the value of symbols must be digits or you enterd an invalid postfix");
 				}	
-			}	
+			}
+			catch (Exception x) {
+				System.out.println(x.getMessage());
+			}
 		}
 	}
 }
