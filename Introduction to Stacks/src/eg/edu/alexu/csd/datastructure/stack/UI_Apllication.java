@@ -31,8 +31,7 @@ public class UI_Apllication {
 				evaluateUI(out);
 				break;
 		case '4':System.exit(0);
-		default :System.out.println("Enter a correct number");
-				
+		default :System.out.println("Enter a correct number");	
 		}
 		s.close();
 	}
