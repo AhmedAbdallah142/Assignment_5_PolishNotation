@@ -29,7 +29,7 @@ class Junit_ExpressionEvaluator {
 		
 		//the next two methods to check the multiply without "*" between digits and symbols or digits and parenthesis
 		assertEquals("25 5 4 + *",e.infixToPostfix("25(5+4)"));
-		assertEquals("5 x +",e.infixToPostfix("5x"));
+		assertEquals("5 x *",e.infixToPostfix("5x"));
 				
 		
 		assertEquals("a 0 b - +",e.infixToPostfix("a+-b"));
