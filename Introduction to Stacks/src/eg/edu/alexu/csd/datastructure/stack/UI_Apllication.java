@@ -22,8 +22,7 @@ public class UI_Apllication {
 					}
 				}
 				if (l.isEmpty()) {
-					System.out.println("the value of the postfix notation is : "+e.evaluate(expression));
-					System.out.println("the value of symbols must be digits or you enterd an invalid postfix");	
+					System.out.println("the value of the postfix notation is : "+e.evaluate(expression));	
 				}
 				else {
 					for (int i=0;i<l.size();i++) {
@@ -38,7 +37,6 @@ public class UI_Apllication {
 						}
 					}
 					System.out.println("the value of the postfix notation is : "+e.evaluate(expression));
-					System.out.println("the value of symbols must be digits or you enterd an invalid postfix");
 				}	
 			}
 			catch (Exception x) {

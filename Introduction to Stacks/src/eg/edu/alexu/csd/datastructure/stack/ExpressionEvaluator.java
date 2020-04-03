@@ -62,7 +62,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
 			num = "";
 			if (Character.isDigit(expression.charAt(i))) {
 				num += expression.charAt(i);
-				while ((Character.isDigit(expression.charAt(i))||expression.charAt(i)=='.'||expression.charAt(i+1)==',')
+				while ((i+1<expression.length())&&(Character.isDigit(expression.charAt(i))||expression.charAt(i)=='.'||expression.charAt(i+1)==',')
 						&&(Character.isDigit(expression.charAt(i+1))||expression.charAt(i+1)=='.'||expression.charAt(i+1)==',')) {
 					i++;
 					num+=expression.charAt(i);
@@ -78,7 +78,7 @@ public class ExpressionEvaluator implements IExpressionEvaluator {
 				throw new RuntimeException ("the input have invalid parameters");
 		}
 		if (nums.size()!=1) throw new RuntimeException ("the input Postfix is invalid to be evaluated");
-		return (int)((float)nums.pop());
+		return (int)Float.parseFloat(nums.pop().toString());
 	}
 	
 	/**
