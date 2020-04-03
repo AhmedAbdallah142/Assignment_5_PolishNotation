@@ -8,10 +8,10 @@ public class UI_Apllication {
 		@SuppressWarnings("resource")
 		Scanner s = new Scanner(System.in);
 		ExpressionEvaluator e = new ExpressionEvaluator();
-		Single_Linked_list l = new Single_Linked_list();
 		String expression;
 		System.out.println("\t\t\t\t\twelcome to infix to postfix program");
 		while(true) {
+			Single_Linked_list l = new Single_Linked_list();
 			System.out.print("\t\t\t\t\t-----------------------------------\nEnter the infix notation (digits or symbols): ");
 			try {
 				expression =e.infixToPostfix(s.next()); 
